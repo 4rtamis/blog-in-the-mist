@@ -5,6 +5,22 @@ import Footer from "@components/Footer.astro";
 import Pagefind from "@components/PageFind.astro";
 import { SITE } from "@consts";
 
+import "@fontsource/fira-sans-extra-condensed/400.css";
+import "@fontsource/fira-sans-extra-condensed/700.css";
+import "@fontsource/fira-sans-extra-condensed/900.css";
+import "@fontsource/pt-serif/400.css";
+import "@fontsource/pt-serif/700.css";
+import "@fontsource/pt-serif/400-italic.css";
+import "@fontsource/pt-serif/700-italic.css";
+import "@fontsource/courier-prime";
+import "@fontsource/averia-serif-libre/300.css";
+import "@fontsource/averia-serif-libre/400.css";
+import "@fontsource/averia-serif-libre/700.css";
+import "@fontsource/averia-serif-libre/300-italic.css";
+import "@fontsource/averia-serif-libre/400-italic.css";
+import "@fontsource/averia-serif-libre/700-italic.css";
+import "@fontsource-variable/roboto";
+
 type Props = {
   title: string;
   description: string;
@@ -21,8 +37,8 @@ const { title, description } = Astro.props;
   <body>
     <noscript>
       <style>
-        .animate{
-          opacity:1;
+        .animate {
+          opacity: 1;
           translate: var(--tw-translate-x) calc(var(--spacing) * 0);
         }
       </style>

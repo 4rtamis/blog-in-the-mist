@@ -1,0 +1,12 @@
+---
+interface Props {
+  type?: "default" | "special";
+}
+const { type = "default" } = Astro.props;
+---
+
+<div
+  class="not-prose bg-mist-clue-yellow font-clue relative my-4 flex rounded p-3 leading-normal text-black shadow-sm/10"
+>
+  <slot />
+</div>

@@ -1,14 +1,24 @@
-@import 'tailwindcss';
-
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
-
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: Geist Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-sans:
+    "Roboto Variable", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-serif:
+    "PT Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-heading: "Fira Sans Extra Condensed", var(--font-sans);
+  --font-clue: "Averia Serif Libre", var(--font-serif);
+  --color-mist-neon-pink: #e6007e;
+  --color-mist-clue-yellow: #fdf1a4;
+  --color-mist-tag-yellow: #fff3a7;
+  --color-mist-status-green: #e2eab1;
+  --color-mist-spectrum-red: #fad0c3;
+  --color-mist-location-blue: #918fb7;
 }
 
 /*
@@ -46,20 +56,18 @@
   }
 
   body {
-    @apply font-sans antialiased;
+    @apply font-serif antialiased;
     @apply flex flex-col;
     @apply bg-neutral-100 dark:bg-neutral-900;
     @apply text-black/75 dark:text-white/75;
   }
 
   header {
-    @apply fixed left-0 right-0 top-0 z-50 py-6;
-    @apply bg-neutral-100/75 dark:bg-neutral-900/75;
-    @apply saturate-200 backdrop-blur-xs;
+    @apply fixed top-0 right-0 left-0 z-50 py-6;
   }
 
   main {
-    @apply flex-1 py-32;
+    @apply flex-1 py-20;
   }
 
   footer {
@@ -67,7 +75,7 @@
   }
 
   article {
-    @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+    @apply prose prose-neutral prose-li:text-black dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full text-black;
     @apply prose-headings:font-semibold;
     @apply prose-headings:text-black dark:prose-headings:text-white;
   }
@@ -75,7 +83,7 @@
 
 @layer utilities {
   article a {
-    @apply font-sans text-current underline underline-offset-[3px];
+    @apply font-serif text-current underline underline-offset-[3px];
     @apply decoration-black/30 dark:decoration-white/30;
     @apply transition-colors duration-300 ease-in-out;
   }
@@ -137,7 +145,7 @@ pre {
 
 /* copy code button on codeblocks */
 .copy-code {
-  @apply absolute right-3 top-3 grid size-9 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
+  @apply absolute top-3 right-3 grid size-9 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
 }
 
 .copy-code:hover {
@@ -147,3 +155,5 @@ pre {
 .copy-code:active {
   @apply scale-90 transition-transform;
 }
+
+@import "./city-of-mist.css";

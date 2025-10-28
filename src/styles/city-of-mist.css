@@ -1,0 +1,39 @@
+body {
+  background-color: #fefdf8;
+  background-image: url("/worn-dots.png");
+  background-size: 150px;
+}
+
+header {
+  background-color: #fefdf8;
+  background-image: url("/header.webp"), url("/worn-dots.png");
+  background-position: bottom, auto;
+  background-size: cover, 150px;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-heading;
+  @apply uppercase;
+  @apply font-black;
+}
+
+article {
+  @apply prose-p:my-2 leading-normal;
+  @apply prose-headings:font-black prose-headings:uppercase prose-headings:font-heading;
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  @apply prose-ul:ps-5 prose-ul:list-outside prose-li:marker:text-black prose-li:marker:text-sm prose-li:ps-0 prose-li:my-0;
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
