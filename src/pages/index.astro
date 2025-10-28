@@ -15,9 +15,7 @@ const episodes = (await getCollection("episodes"))
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <h1
-        class="mb-3 text-4xl text-black underline decoration-4 dark:text-white"
-      >
+      <h1 class="mb-3 text-4xl text-black underline decoration-4">
         Welcome to the City Archive
       </h1>
       <div class="space-y-16">
@@ -46,9 +44,7 @@ const episodes = (await getCollection("episodes"))
 
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="text-2xl font-semibold text-black dark:text-white">
-              Latest episodes
-            </h2>
+            <h2 class="text-2xl font-semibold text-black">Latest episodes</h2>
             <Link href="/episodes"> See all episodes </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
@@ -63,9 +59,7 @@ const episodes = (await getCollection("episodes"))
         </section>
 
         <section class="animate space-y-4">
-          <h2 class="text-2xl font-semibold text-black dark:text-white">
-            Credits
-          </h2>
+          <h2 class="text-2xl font-semibold text-black">Credits</h2>
           <article>
             <p>
               This blog and its contents are created by 4rtamis. <br />
