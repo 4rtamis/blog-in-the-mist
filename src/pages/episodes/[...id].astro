@@ -20,7 +20,7 @@ type Props = CollectionEntry<"episodes">;
 
 const posts = (await getCollection("episodes"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 
 function getNextPost() {
   let postIndex;
