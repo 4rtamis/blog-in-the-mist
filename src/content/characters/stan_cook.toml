@@ -1,0 +1,96 @@
+name = "Stan Cook"
+mythos = "Charon, ferryman of the underworld"
+logos = "Night-shift subway dispatcher and transit fixer"
+build_up = 2
+
+moments_of_evolution = [
+  "Let a spirit ride free rather than collect a coin, trusting his own judgment over mythic rules.",
+  "Admitted to his crew that the ghost rails are real, inviting them into his secret war.",
+  "Delivered a wounded rift through the tunnels instead of abandoning him to the Mist.",
+]
+
+[[themes]]
+type = "Logos"
+themebook = "Routine"
+title = "Night Shift Dispatch Board"
+core_sentence = "Keeps the city's late trains moving and the crews loyal."
+attention = 1
+fade_crack = 0
+power_tags = [
+  ["A", "Scanner chatter from every line"],
+  ["B", "Authority over late-night crews"],
+  ["C", "Schedules memorized down to the minute"],
+]
+weakness_tags = [
+  ["A", "Union rules and red tape"],
+]
+
+[[themes.improvements]]
+name = "Shift swap favors"
+description = "Call in a conductor or reroute a train to get someone out fast."
+
+[[themes.improvements]]
+name = "People watcher"
+description = "Clock lies and jitters over the radio before they boil over."
+
+[[themes]]
+type = "Mythos"
+themebook = "Mobility"
+title = "Styx Between Stations"
+core_sentence = "Summons phantom tracks that jump stations when the Mist presses."
+attention = 0
+fade_crack = 1
+power_tags = [
+  ["A", "Phantom ferry along the third rail"],
+  ["B", "Sense any exit that leads below the street"],
+  ["C", "Slip allies onto a train already in motion"],
+]
+weakness_tags = [
+  ["A", "Owes passage to the forgotten dead"],
+]
+
+[[themes.improvements]]
+name = "Shortcut through the dark"
+description = "Open a one-stop hop between two shadowed platforms."
+
+[[themes]]
+type = "Mythos"
+themebook = "Relic"
+title = "Coin of Safe Passage"
+core_sentence = "An ancient drachma that seals bargains and wards riders from the Mist."
+attention = 0
+fade_crack = 0
+power_tags = [
+  ["A", "Ward passengers from prowling avatars"],
+  ["B", "Compel a promise when the coin changes hands"],
+  ["C", "Glimpse who has paid their fare in secrets"],
+]
+weakness_tags = [
+  ["A", "Debt collectors from the River demand payment"],
+  ["B", "Must be offered willingly to work"],
+]
+
+[[themes.improvements]]
+name = "Exact change"
+description = "Spend attention to erase a price or toll someone else owes."
+
+[[themes]]
+type = "Logos"
+themebook = "Defining Relationship"
+title = "Protective Uncle to the Yard Kids"
+core_sentence = "Looks after the runaway kids who sleep in the rail yard shacks."
+attention = 1
+fade_crack = 0
+power_tags = [
+  ["A", "Shelter in forgotten maintenance rooms"],
+  ["B", "Streetwise kids with quick eyes"],
+  ["C", "Earned trust with hot meals and spare blankets"],
+]
+weakness_tags = [
+  ["A", "They notice when he hides things"],
+  ["B", "Cannot abandon them, even when mission demands speed"],
+]
+
+[[themes.improvements]]
+name = "Family phone tree"
+description = "Any kid can pass a message through the tunnels faster than a radio."

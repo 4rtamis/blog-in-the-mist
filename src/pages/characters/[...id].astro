@@ -1,0 +1,73 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import ThemeCard from "@components/ThemeCard.astro";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const characters = await getCollection("characters");
+
+  return characters.map((character) => ({
+    params: { id: character.id },
+    props: character,
+  }));
+}
+
+type Props = CollectionEntry<"characters">;
+
+const character = Astro.props as Props;
+---
+
+<Layout
+  title={character.data.name}
+  description={`${character.data.mythos} hidden within ${character.data.logos}`}
+>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/characters">Back to characters</BackToPrevious>
+    </div>
+
+    <section class="my-10 space-y-4">
+      <p class="text-xs uppercase tracking-[0.2em] text-black/60">
+        Mythos: {character.data.mythos} &bull; Logos: {character.data.logos}
+      </p>
+
+      <h1
+        class="text-4xl font-semibold text-black underline decoration-5 underline-offset-4"
+      >
+        {character.data.name}
+      </h1>
+
+      <div class="flex flex-wrap gap-2 text-xs font-semibold uppercase">
+        <span class="rounded-sm bg-[#514A48] px-3 py-1 text-[#e0d9c1]">
+          Build Up {character.data.build_up}/5
+        </span>
+        <span class="rounded-sm bg-black/10 px-2 py-1">
+          {character.data.moments_of_evolution.length} Moments of Evolution
+        </span>
+        <span class="rounded-sm bg-black/5 px-2 py-1">
+          {character.data.themes.length} Themes
+        </span>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-xl font-semibold text-black">Moments of Evolution</h2>
+        <ul class="list-disc space-y-1 pl-5 text-black">
+          {character.data.moments_of_evolution.map((moment) => (
+            <li>{moment}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-black">Themes</h2>
+      <div class="grid gap-6">
+        {character.data.themes.map((theme) => (
+          <ThemeCard theme={theme} />
+        ))}
+      </div>
+    </section>
+  </Container>
+</Layout>

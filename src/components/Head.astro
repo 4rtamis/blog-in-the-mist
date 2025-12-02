@@ -102,12 +102,10 @@ const { title, description, image = "/astro-micro.jpg" } = Astro.props;
 
     function removeActiveButtonTheme(button) {
       button?.classList.remove("bg-black/5");
-      button?.classList.remove("dark:bg-white/5");
     }
 
     function addActiveButtonTheme(button) {
       button?.classList.add("bg-black/5");
-      button?.classList.add("dark:bg-white/5");
     }
 
     removeActiveButtonTheme(lightThemeButton);

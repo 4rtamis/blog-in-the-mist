@@ -1,0 +1,112 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { cn } from "@lib/utils";
+
+type Theme = CollectionEntry<"characters">["data"]["themes"][number];
+
+const { theme, class: className } = Astro.props as {
+  theme: Theme;
+  class?: string;
+};
+
+const tone =
+  theme.type === "Mythos"
+    ? "bg-[#d8f1ff] border-[#1b4965]"
+    : theme.type === "Mist"
+      ? "bg-[#efe3ff] border-[#5d2f95]"
+      : "bg-[#e9e4d3] border-[#514A48]";
+
+const headingTone =
+  theme.type === "Mythos"
+    ? "bg-[#1b4965] text-[#d8f1ff]"
+    : theme.type === "Mist"
+      ? "bg-[#5d2f95] text-[#efe3ff]"
+      : "bg-[#514A48] text-[#e9e4d3]";
+---
+
+<article
+  class={cn(
+    "not-prose overflow-hidden rounded-lg border-2 shadow-black/10",
+    tone,
+    className,
+  )}
+>
+  <header
+    class={cn(
+      "flex flex-wrap items-center justify-between gap-2 border-b-2 px-3 py-2 font-heading text-sm font-semibold uppercase",
+      headingTone,
+    )}
+  >
+    <div class="flex items-center gap-2">
+      <span class="rounded-sm px-2 py-1">{theme.type}</span>
+      <span class="rounded-sm bg-black/20 px-2 py-1 text-xs tracking-wide">
+        {theme.themebook}
+      </span>
+    </div>
+    <div class="flex gap-2 text-xs">
+      <span class="rounded-sm bg-black/20 px-2 py-0.5">
+        Attention: {theme.attention}/3
+      </span>
+      <span class="rounded-sm bg-black/20 px-2 py-0.5">
+        Fade/Crack: {theme.fade_crack}/3
+      </span>
+    </div>
+  </header>
+
+  <div class="space-y-4 px-4 py-4 text-black">
+    <div class="space-y-1">
+      <h3 class="text-xl font-bold uppercase">{theme.title}</h3>
+      <p class="text-sm text-black/80">{theme.core_sentence}</p>
+    </div>
+
+    <div class="grid gap-3 md:grid-cols-2">
+      <div class="space-y-2 rounded-md border border-black/10 bg-black/5 p-3">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase">
+          <span class="rounded-sm bg-black/10 px-2 py-0.5">Power Tags</span>
+        </div>
+        <ul class="space-y-1">
+          {theme.power_tags.map(([code, label]) => (
+            <li class="flex items-start gap-2 text-sm">
+              <span class="mt-0.5 rounded-sm bg-black/80 px-2 py-0.5 font-mono text-xs text-white">
+                {code}
+              </span>
+              <span class="leading-snug">{label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="space-y-2 rounded-md border border-black/10 bg-black/5 p-3">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase">
+          <span class="rounded-sm bg-black/10 px-2 py-0.5">Weakness Tags</span>
+        </div>
+        <ul class="space-y-1">
+          {theme.weakness_tags.map(([code, label]) => (
+            <li class="flex items-start gap-2 text-sm">
+              <span class="mt-0.5 rounded-sm bg-black/40 px-2 py-0.5 font-mono text-xs text-black">
+                {code}
+              </span>
+              <span class="leading-snug">{label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {
+      theme.improvements.length > 0 && (
+        <div class="space-y-2 rounded-md border border-black/10 bg-black/10 p-3">
+          <div class="text-xs font-semibold uppercase">Improvements</div>
+          <ul class="space-y-2">
+            {theme.improvements.map((improvement) => (
+              <li>
+                <div class="font-semibold">{improvement.name}</div>
+                <div class="text-sm text-black/80">{improvement.description}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+</article>

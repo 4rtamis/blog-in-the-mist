@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource-variable/roboto": "^5.2.8",
     "@fontsource/averia-serif-libre": "^5.2.7",
+    "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/courier-prime": "^5.2.8",
     "@fontsource/fira-sans": "^5.2.7",
     "@fontsource/fira-sans-extra-condensed": "^5.2.7",
